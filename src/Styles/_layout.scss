@@ -1,0 +1,24 @@
+body {
+    background-color: #F5F5F5;
+    color: #737376;
+    font-size: 0.938rem;
+}
+h1, h2, h3 {
+    color: #131741;
+}
+
+#main-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "sidebar main";
+    padding: 1rem;
+}
+#sidebarMenu {
+    grid-area: sidebar;
+}
+#main {
+    grid-area: main;
+}

@@ -1,0 +1,49 @@
+@import "../../Styles/variables";
+
+#sidebarMenu {
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+
+    &.active {
+        min-width: 67px;
+        max-width: 67px;
+        text-align: center;
+
+        img + span,
+        li > button + div {
+            display: none;
+        }
+    }
+}
+
+#sidebarCollapse {
+    color: $secondary;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+
+#sidebarMenu > ul li {
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 12px 0 12px 14px;
+
+    span {
+        padding-left: 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+#sidebarMenu.active ul li a {
+    padding: 20px 10px;
+    font-size: 0.85em;
+    color: $secondary;
+
+    &:hover {
+        color: $primary;
+    }
+}
