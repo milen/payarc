@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "./Navigation.scss";
 
 import PayarcLogo from "../../assets/svg/payarc-logo.svg";
@@ -31,12 +31,12 @@ const Navigation = (props) => {
             <img src={PayarcLogo} width={41} height={41} alt="Payarc" />
           </button>
 
-          <a
-            href="/"
+          <Link
+            to="/"
             className={`btn btn-custom ${!isNotActive ? "" : "d-none"}`}
           >
             <img src={PayarcLogo} width={41} height={41} alt="Payarc" />
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -57,158 +57,161 @@ const Navigation = (props) => {
               />
             </svg>
           </button>
+        </div>
 
-          </div>
-
-          <ul className="nav flex-column mb-2">
-            <li className="nav-item">
-              <a href="#">
-                <img src={DashboardIcon} alt="Dashboard" />
-                <span>Dashboard</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a  href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#home-collapse"
-                aria-expanded="true"
-              >
-                <img src={PayarcIcon} alt="My Payarc" />
-                <span>My Payarc</span>
-              </a>
-              <div className="collapse" id="home-collapse" style={{}}>
-                <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li>
-                    <a
-                      href="#"
-                    >
-                      <span>Overview</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      data-bs-toggle="collapse"
-                      data-bs-target="#apply-app-collapse"
-                      aria-expanded="true"
-                    >
-                      <span>Apply App</span>
-                    </a>
-                    <div
-                      className="collapse"
-                      id="apply-app-collapse"
-                      style={{}}
-                    >
-                      <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                          <a
-                            href="#"
-                            className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          >
-                            <span>Applications</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          >
-                            <span>Pricing Templates</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          >
-                            <span>Reports</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          >
-                            <span>User Maintenance</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                          >
-                            <span>Settings</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >
-                      <span>My Residuals</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >
-                      <span>My Merchants</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="link-body-emphasis d-inline-flex text-decoration-none rounded"
-                    >
-                      <span>Resources</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <img src={AboutIcon} alt="About Payarc" />
-                <span>About Payarc</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <img src={TrainingIcon} alt="Payarc Training" />
-                <span>Payarc Training</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <img src={IndustryIcon} alt="Industry Training" />
-                <span>Industry Training</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <img src={MaterialsIcon} alt="Marketing Materials" />
-                <span>Marketing Materials</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <img src={FormIcon} alt="Marketing Request Forms" />
-                <span>Marketing Request Forms</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <img src={ToolsIcon} alt="Access to tools" />
-                <span>Access to tools</span>
-              </a>
-            </li>
-          </ul>
+        <ul className="nav flex-column mb-2">
+          <li className="nav-item">
+            <Link to="/">
+              <img src={DashboardIcon} alt="Dashboard" />
+              <span>Dashboard</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/"
+              data-bs-toggle="collapse"
+              data-bs-target="#home-collapse"
+              aria-expanded="true"
+            >
+              <img src={PayarcIcon} alt="My Payarc" />
+              <span>My Payarc</span>
+            </Link>
+            <div className="collapse" id="home-collapse" style={{}}>
+              <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <Link to="/">
+                    <span>Overview</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    data-bs-toggle="collapse"
+                    data-bs-target="#apply-app-collapse"
+                    aria-expanded="true"
+                  >
+                    <span>Apply App</span>
+                  </Link>
+                  <div className="collapse" id="apply-app-collapse" style={{}}>
+                    <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                      <li>
+                        <Link
+                          to="/"
+                          className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                        >
+                          <span>Applications</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                        >
+                          <span>Pricing Templates</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                        >
+                          <span>Reports</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                        >
+                          <span>User Maintenance</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                        >
+                          <span>Settings</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <Link
+                    to="/"
+                    className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                  >
+                    <span>My Residuals</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/"
+                    className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                  >
+                    <span>My Merchants</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/"
+                    className="link-body-emphasis d-inline-flex text-decoration-none rounded"
+                  >
+                    <span>Resources</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li className="nav-item">
+            <Link to="/">
+              <img src={AboutIcon} alt="About Payarc" />
+              <span>About Payarc</span>
+            </Link>
+          </li>
+          <NavLink to="/training">
+            <img src={TrainingIcon} alt="Payarc Training" />
+            <span>Payarc Training</span>
+          </NavLink>
+          <li className="nav-item">
+            <Link to="/">
+              <img src={IndustryIcon} alt="Industry Training" />
+              <span>Industry Training</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/">
+              <img src={MaterialsIcon} alt="Marketing Materials" />
+              <span>Marketing Materials</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/">
+              <img src={FormIcon} alt="Marketing Request Forms" />
+              <span>Marketing Request Forms</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/">
+              <img src={ToolsIcon} alt="Access to tools" />
+              <span>Access to tools</span>
+            </Link>
+          </li>
+        </ul>
       </nav>
     </Card>
   );
 };
 
 export default Navigation;
+
+function NavLink({ to, children }) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to}>{children}</Link>
+    </li>
+  );
+}
