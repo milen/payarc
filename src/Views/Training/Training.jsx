@@ -1,20 +1,43 @@
 import Card from "../../Components/Card/Card";
+import visual from "../../assets/images/office-work.png";
+import visual2x from "../../assets/images/office-work@2x.png";
 
 function Training() {
   return (
     <>
       <div className="row">
-        <div className="col-9">
+        <div className="col-12 col-lg-9">
           <Card className="h-auto mb-5">
-            <h1>Payarc Training</h1>
-            <p>
-              In tiered pricing, each credit card transaction falls into a
-              pricing category: qualified, mid-qualified, and non-qualified.
-              Qualified rates are the lowest, and you might think that most of
-              your credit card transactions fall into the qualified category.
-              Not so! Downgrades can occur for several reasons, including, but
-              not limited to:
-            </p>
+            <div className="row">
+              <div className="d-none d-lg-block col-md-5">
+                <img
+                  className="w-100"
+                  style={{ marginTop: "-6rem" }}
+                  src={visual}
+                  srcSet={`${visual2x} 2x`}
+                />
+              </div>
+              <div className="col col-lg-7">
+                <h1>Payarc Training</h1>
+                <p>
+                  In tiered pricing, each credit card transaction falls into a
+                  pricing category: qualified, mid-qualified, and non-qualified.
+                  Qualified rates are the lowest, and you might think that most
+                  of your credit card transactions fall into the qualified
+                  category. Not so! Downgrades can occur for several reasons,
+                  including, but not limited to:
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="h-auto d-block d-lg-none mb-5">
+            <ul className="list-group list-group-horizontal list-group-flush list-group-numbered">
+              <li className="list-group-item active">Apply app</li>
+              <li className="list-group-item active">Admin Portal</li>
+              <li className="list-group-item">Merchant Portal</li>
+              <li className="list-group-item disabled">Curv POS</li>
+            </ul>
           </Card>
 
           <div className="accordion" id="accordionExample">
@@ -126,7 +149,7 @@ function Training() {
             </div>
           </div>
         </div>
-        <div className="col-3 mb-5">
+        <div className="d-none d-lg-block col-lg-3 mb-5">
           <Card>
             <ul className="list-group list-group-flush list-group-numbered">
               <li className="list-group-item active">Apply app</li>
