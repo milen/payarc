@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Card from "../../Components/Card/Card";
 import PayarcLogo from "../../assets/svg/payarc-logo.svg";
+import Icon from "../../Components/Icon/Icon";
 
 function Home() {
   return (
@@ -82,7 +83,7 @@ function Home() {
               Ever wondered about those mysterious NABU fees on your statement?
             </p>
             <p className="mt-auto">
-              <a className="btn btn-primary" href="/" role="button">
+              <a className="btn btn-primary text-white" href="/" role="button">
                 Enter
               </a>
             </p>

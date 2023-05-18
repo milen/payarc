@@ -1,18 +1,51 @@
 @import "../../Styles/variables";
 
+.sidebar {
+    padding: 2rem;
+
+    &-header {
+        background-color: red;
+    }
+}
+
 #sidebarMenu {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 364px;
+    max-width: 364px;
     transition: all 0.3s;
 
     &.active {
-        min-width: 67px;
-        max-width: 67px;
+        min-width: 41px;
+        max-width: 41px;
         text-align: center;
 
-        img + span,
+        span,
         li > button + div {
             display: none;
+        }
+    }
+
+    ul {
+        padding: 24px;
+    }
+
+    .nav-item {
+
+        a {
+            display: flex;
+            padding: 8px;
+
+            &:hover {
+                background-color: $primary;
+            }
+
+            svg {
+                display: block;
+            }
+        
+            span {
+                display: inline-block;
+                font-size: 0.75rem;
+            }
         }
     }
 }
@@ -22,19 +55,6 @@
 
     &:hover {
         color: $primary;
-    }
-}
-
-
-#sidebarMenu > ul li {
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 12px 0 12px 14px;
-
-    span {
-        padding-left: 0.5rem;
-        font-size: 0.75rem;
     }
 }
 
